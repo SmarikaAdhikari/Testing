@@ -33,9 +33,21 @@ class _MyHomePageState extends State<MyHomePage> {
     "https://picsum.photos/id/237/200/300",
     "https://picsum.photos/200/300.webp",
     "https://picsum.photos/200/300.webp",
+    "https://picsum.photos/200/300.webp",
+    "https://picsum.photos/200",
+    "https://picsum.photos/200",
   ];
 
-  List<double> imageHeights = [200.0, 200.0, 200.0, 200.0, 200.0, 250.0];
+  List<double> imageHeights = [
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+  ];
 
   dynamic CachedNetworkImage({required String imageUrl, required BoxFit fit}) {}
 
@@ -48,38 +60,111 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.red,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Row(
-                children: [
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-                  Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          labelText: 'Name *',
-                          hintText: "search",
-                          prefix: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          )),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Icon(Icons.notifications_on)
-                ],
+              IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      labelText: 'Name *',
+                      hintText: "search",
+                      prefix: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(40),
+                      )),
+                ),
               ),
-              const Text("smarikaaaaaa"),
-              const Text("adhikariii"),
+              const SizedBox(
+                width: 20,
+              ),
+              const Icon(Icons.notifications_on)
             ],
           ),
         ),
       ),
+      Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Stack(
+          children: [
+            Container(
+              height: 200,
+              // color: Colors.blue[100],
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: NetworkImage("https://picsum.photos/200"),
+                  fit: BoxFit.cover,
+                ),
+                border: Border.all(
+                  color: const Color.fromRGBO(76, 175, 80, 1),
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    offset: const Offset(
+                      5.0,
+                      5.0,
+                    ),
+                    blurRadius: 5.0,
+                    spreadRadius: 2.0,
+                  ),
+                  // BoxShadow(
+                  //   color: Colors.white,
+                  //   offset: const Offset(0.0, 0.0),
+                  //   blurRadius: 0.0,
+                  //   spreadRadius: 0.0,
+                  // ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: Image.network(
+                      "https://picsum.photos/200/300",
+                      fit: BoxFit.cover,
+                      height: 170,
+                      width: 170,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: Image.network(
+                      "https://picsum.photos/200",
+                      fit: BoxFit.cover,
+                      height: 180,
+                      width: 180,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Hello World!", style: TextStyle(fontSize: 30)),
+                  Text("Description", style: TextStyle(fontSize: 20)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(
+        height: 10,
+      ),
       Flexible(
         child: SizedBox(
-            height: 650,
+            height: 10000,
             child: StaggeredGridView.countBuilder(
               crossAxisCount: 2,
               itemCount: images.length,
@@ -99,21 +184,3 @@ class _MyHomePageState extends State<MyHomePage> {
     ])));
   }
 }
- // child: StaggeredGridView.countBuilder(
-          //   crossAxisCount: 6,
-          //   itemCount: 10,
-          //   itemBuilder: (BuildContext context, int index) => Container(
-          //     color: Colors.green,
-          //     child: Center(
-          //       child: Text(
-          //         'Item $index',
-          //         style: TextStyle(fontSize: 20.0, color: Colors.white),
-          //       ),
-          //     ),
-          //   ),
-          //   staggeredTileBuilder: (int index) =>
-          //       StaggeredTile.count(2, index.isEven ? 2 : 3),
-          //   mainAxisSpacing: 2.0,
-          //   crossAxisSpacing: 2.0,
-          // ),
-             
