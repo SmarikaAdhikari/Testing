@@ -87,72 +87,111 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             Container(
-              height: 200,
-              // color: Colors.blue[100],
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image: NetworkImage("https://picsum.photos/200"),
-                  fit: BoxFit.cover,
-                ),
-                border: Border.all(
-                  color: const Color.fromRGBO(76, 175, 80, 1),
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    offset: const Offset(
-                      5.0,
-                      5.0,
-                    ),
-                    blurRadius: 5.0,
-                    spreadRadius: 2.0,
-                  ),
-                  // BoxShadow(
-                  //   color: Colors.white,
-                  //   offset: const Offset(0.0, 0.0),
-                  //   blurRadius: 0.0,
-                  //   spreadRadius: 0.0,
-                  // ),
-                ],
-              ),
+              height: 300,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: Image.network(
-                      "https://picsum.photos/200/300",
-                      fit: BoxFit.cover,
-                      height: 170,
-                      width: 170,
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: Image.network(
-                      "https://picsum.photos/200",
-                      fit: BoxFit.cover,
-                      height: 180,
-                      width: 180,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Hello World!", style: TextStyle(fontSize: 30)),
-                  Text("Description", style: TextStyle(fontSize: 20)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 250.0,
+                        // width: MediaQuery.of(context).size.width - 150.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          image: DecorationImage(
+                              image:
+                                  NetworkImage("https://picsum.photos/200/300"),
+                              fit: BoxFit.fill),
+                          gradient: LinearGradient(
+                              begin: FractionalOffset.topLeft,
+                              end: FractionalOffset.bottomRight,
+                              colors: [
+                                Color.fromARGB(255, 255, 255, 255)
+                                    .withOpacity(0.8),
+                                Color.fromARGB(255, 235, 235, 235)
+                                    .withOpacity(0.8),
+                                Color.fromARGB(255, 141, 141, 141)
+                                    .withOpacity(0.8),
+                                Color.fromARGB(255, 63, 63, 63)
+                                    .withOpacity(0.8),
+                                Color.fromARGB(255, 49, 49, 49)
+                                    .withOpacity(0.8),
+                              ],
+                              stops: [
+                                0.0,
+                                0.25,
+                                0.5,
+                                0.75,
+                                1.0
+                              ]),
+
+                          // gradient: LinearGradient(
+                          //   begin: Alignment.topRight,
+                          //   end: Alignment.bottomLeft,
+                          //   colors: [
+                          //     Colors.white,
+                          //     Colors.black,
+                          //   ],
+                          // ),
+                        ),
+                        child: const Center(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 180,
+                              ),
+                              Text("Hello World!",
+                                  style: TextStyle(
+                                      fontSize: 30, color: Colors.white)),
+                              Text("Description",
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 250.0,
+                        // width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          image: DecorationImage(
+                              colorFilter: new ColorFilter.mode(
+                                  Colors.black.withOpacity(0.5),
+                                  BlendMode.softLight),
+                              image:
+                                  NetworkImage("https://picsum.photos/200/300"),
+                              fit: BoxFit.fill),
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Colors.white,
+                              Colors.black,
+                            ],
+                          ),
+                        ),
+                        child: const Center(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 180,
+                              ),
+                              Text("Hello World!",
+                                  style: TextStyle(
+                                      fontSize: 30, color: Colors.white)),
+                              Text("Description",
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
